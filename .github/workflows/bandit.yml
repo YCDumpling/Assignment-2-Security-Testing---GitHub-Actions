@@ -13,12 +13,12 @@
 name: Bandit
 on:
   push:
-    branches: [ $default-branch, $protected-branches ]
+    branches: [ bandit-scan ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ $default-branch ]
+    branches: [ bandit-scan ]
   schedule:
-    - cron: $cron-weekly
+    - cron: '0 0 * * 1' # Runs weekly on Mondays at midnight UTC
 
 jobs:
   bandit:
